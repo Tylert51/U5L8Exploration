@@ -66,6 +66,19 @@ public class Temperature {
         return (temp - 32) * (5.0 / 9);
     }
 
+    public boolean belowFreezing() {
+        double highF;
+        double lowF;
+        if(tempScale.equals("C")) {
+            highF = convertCtoF(highTemp);
+            lowF = convertCtoF(lowTemp);
+        } else {
+            highF = highTemp;
+            lowF = lowTemp;
+        }
+
+        return (highF < FREEZING_TEMP_F || lowF < FREEZING_TEMP_F);
+    }
 
     public void changeToC() {
         if(tempScale.equals("F")) {
@@ -94,6 +107,10 @@ public class Temperature {
 
     private static double getLowestTrackedTempF() {
         return round(lowestTrackedTempF);
+    }
+
+    public static boolean sawFreezing() {
+        return (highestTrackedTempF < FREEZING_TEMP_F || lowestTrackedTempF < FREEZING_TEMP_F);
     }
 
     private String getTempScale() {
