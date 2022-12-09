@@ -101,11 +101,11 @@ public class Temperature {
         return Math.round(num * 100) / 100.0;
     }
 
-    private static double getHighestTrackedTempF() {
+    public static double getHighestTrackedTempF() {
         return round(highestTrackedTempF);
     }
 
-    private static double getLowestTrackedTempF() {
+    public static double getLowestTrackedTempF() {
         return round(lowestTrackedTempF);
     }
 
@@ -113,7 +113,7 @@ public class Temperature {
         return (highestTrackedTempF < FREEZING_TEMP_F || lowestTrackedTempF < FREEZING_TEMP_F);
     }
 
-    private String getTempScale() {
+    public String getTempScale() {
         return tempScale;
     }
 
